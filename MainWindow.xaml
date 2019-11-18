@@ -1,0 +1,179 @@
+<Window x:Class="Music_Player.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Music_Player"
+        mc:Ignorable="d"
+        Title="MainWindow" Name="mainWindow" Height="450" Width="800">
+  <Grid>
+    <Grid Background="Black">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="108*"/>
+        <RowDefinition Height="311*"/>
+      </Grid.RowDefinitions>
+      <Grid HorizontalAlignment="Left" Height="383" Margin="20,23,0,0" VerticalAlignment="Top" Width="755" RenderTransformOrigin="0.395,0.302" Grid.RowSpan="2">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="70*"/>
+          <ColumnDefinition Width="8*"/>
+          <ColumnDefinition Width="40*"/>
+          <ColumnDefinition Width="34*"/>
+          <ColumnDefinition Width="25*"/>
+          <ColumnDefinition Width="578*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+          <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="White"/>
+          </LinearGradientBrush>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Left" Height="226" Margin="13,22,0,0" VerticalAlignment="Top" Width="315" Background="Black" Grid.ColumnSpan="6">
+          <Image x:Name="Animated" Source="Music Player Icons/CD Player Image.PNG" Margin="4,21,31,13"/>
+        </Grid>
+        <Menu Name="FileMenu" Height="23" VerticalAlignment="Top" Margin="1,0,0,0" Grid.ColumnSpan="6">
+          <MenuItem Header="File">
+            <MenuItem x:Name="OpenFile" Header="Open File" Click="OpenFile_Click"/>
+            <MenuItem x:Name="OpenFolder" Header="Open Folder" Click="OpenFolder_Click"/>
+            <MenuItem x:Name="OpenPlaylist" Header="Open Playlist" Click="OpenPlaylist_Click" />
+            <MenuItem x:Name="SavePlaylist" Header="Save Playlist" Click="SavePlaylist_Click" />
+            <Separator></Separator>
+            <MenuItem x:Name="Exit" Header="Exit" Click="CloseApp_Click"/>
+          </MenuItem>
+        </Menu>
+        <Grid HorizontalAlignment="Left" Height="330" Margin="171.994,36,0,0" VerticalAlignment="Top" Width="386" RenderTransformOrigin="-0.21,0.03" Grid.Column="5"/>
+        <Grid HorizontalAlignment="Left" Height="340" Margin="170.994,25,0,0" VerticalAlignment="Top" Width="392" Background="Black" Grid.Column="5">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="167*"/>
+            <RowDefinition Height="173*"/>
+          </Grid.RowDefinitions>
+          <TextBox x:Name="playList" HorizontalAlignment="Left" Height="35" Margin="7,8,0,0" TextWrapping="Wrap" Text="Playlists" VerticalAlignment="Top" Width="159"  FontSize="20" FontFamily="Yu Gothic UI" FontWeight="Bold" Background="Black" Foreground="White" BorderBrush="Black"/>
+          <ListBox  SelectionMode="Extended" IsSelected="True" x:Name="MusicListBox" HorizontalAlignment="Left" Height="94" Margin="11,36,0,0" VerticalAlignment="Top" Width="362" Background="Black" Foreground="White" SelectionChanged="MusicListBox_SelectionChanged"/>
+          <TextBlock x:Name="musicPath" HorizontalAlignment="Left" Margin="87,121.304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="294" Foreground="White" FontSize="15" Grid.Row="1"/>
+          <TextBlock x:Name="musicName" HorizontalAlignment="Left" Margin="85,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="292" Foreground="White" RenderTransformOrigin="0.5,0.5" FontSize="15" Grid.Row="1"/>
+
+
+          <Slider x:Name="Volume" HorizontalAlignment="Left" Margin="-136,132,0,0" VerticalAlignment="Top" Width="254" ValueChanged="Volume_ValueChanged" RenderTransformOrigin="0.5,0.5"
+
+
+>
+            <Slider.RenderTransform>
+              <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-89.943"/>
+                <TranslateTransform/>
+              </TransformGroup>
+            </Slider.RenderTransform>
+          </Slider>
+          <Label Content="Now Playing:" HorizontalAlignment="Left" Margin="8,140,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="-0.082,-1.301" Foreground="White"/>
+          <ListBox x:Name="PlayingTrack" HorizontalAlignment="Left" Height="36" Margin="108,141,0,0" VerticalAlignment="Top" Width="268" Background="Black" Foreground="White" SelectionChanged="PlayingTrack_SelectionChanged" Grid.RowSpan="2" />
+          <TextBox Name="Input" LostFocus="Input_LostFocus"  HorizontalAlignment="Left" Height="31" Margin="8,21,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="369"/>
+          <TextBox Name="WaterMark" Text="Search" GotFocus="WaterMark_GotFocus"  HorizontalAlignment="Left" Height="31" Margin="8,21,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="369"/>
+          <Label Content="Track Name:" HorizontalAlignment="Left" Margin="8,80,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" FontSize="12"/>
+          <Label Content="Path:" HorizontalAlignment="Left" Margin="11,123,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.31,1.475" FontSize="12"/>
+
+
+        </Grid>
+        <Button x:Name="PlayButton" Margin="55,295,0,24" Background="Transparent" Click="PlayButton_Click" BorderBrush="Transparent" BorderThickness="0" AutomationProperties.Name="PlayButton" Grid.ColumnSpan="3">
+          <StackPanel Width="62" Height="82">
+            <Image x:Name="playImage" Source="Music Player Icons/Play.PNG" Height="68" Margin="5,0,11,0" RenderTransformOrigin="0.5,0.5">
+              <Image.RenderTransform>
+                <TransformGroup>
+                  <ScaleTransform/>
+                  <SkewTransform AngleY="-1.637"/>
+                  <RotateTransform/>
+                  <TranslateTransform Y="-0.971"/>
+                </TransformGroup>
+              </Image.RenderTransform>
+            </Image>
+          </StackPanel>
+        </Button>
+        <Button x:Name="PreviousSongButton" Margin="2,293,9,19" Background="Transparent" Click="PreviousSongButton_Click" BorderBrush="Transparent" BorderThickness="0" AutomationProperties.Name="PreviousSongButton" AutomationProperties.AutomationId="Prevo">
+          <StackPanel Width="55" Height="82">
+            <Image x:Name="previousSongImage" Source="Music Player Icons/Fast backword.PNG" Height="72" Margin="0,0,3,0" RenderTransformOrigin="0.5,0.5">
+              <Image.RenderTransform>
+                <TransformGroup>
+                  <ScaleTransform/>
+                  <SkewTransform AngleY="-1.637"/>
+                  <RotateTransform/>
+                  <TranslateTransform Y="-0.971"/>
+                </TransformGroup>
+              </Image.RenderTransform>
+            </Image>
+          </StackPanel>
+        </Button>
+        <Button x:Name="ShuffleButton" Margin="112.994,299,404,13" Background="Transparent" Click="ShuffleButton_Click"  BorderBrush="Transparent" BorderThickness="0" AutomationProperties.Name="PreviousSongButton" AutomationProperties.AutomationId="Prevo" Grid.Column="5">
+          <StackPanel Width="59" Height="82">
+            <Image x:Name="ShuffleSongButtonImage" Source="Music Player Icons/Shuffle.PNG" Height="66" Margin="3,0,6,0" RenderTransformOrigin="0.5,0.5">
+              <Image.RenderTransform>
+                <TransformGroup>
+                  <ScaleTransform/>
+                  <SkewTransform AngleY="-1.637" AngleX="0.14"/>
+                  <RotateTransform/>
+                  <TranslateTransform Y="-0.968" X="-0.088"/>
+                </TransformGroup>
+              </Image.RenderTransform>
+            </Image>
+          </StackPanel>
+        </Button>
+        <Button x:Name="NextSongButton" Margin="56.994,293,457,23" Background="Transparent" Click="NextSongButton_Click" Foreground="White" BorderBrush="Transparent" BorderThickness="0" AutomationProperties.Name="ForwardButton" Grid.Column="5">
+          <StackPanel Width="56" Height="52">
+            <Image x:Name="NextSongButtonImage" Source="Music Player Icons/Fast forward.PNG" Height="61" Margin="0,0,3,0" RenderTransformOrigin="0.5,0.5">
+              <Image.RenderTransform>
+                <TransformGroup>
+                  <ScaleTransform/>
+                  <SkewTransform AngleY="-1.637"/>
+                  <RotateTransform/>
+                  <TranslateTransform Y="-0.971"/>
+                </TransformGroup>
+              </Image.RenderTransform>
+            </Image>
+          </StackPanel>
+        </Button>
+        <Button x:Name="StopButton" Margin="23,296,518,23" Background="Transparent" Click="StopButton_Click" BorderBrush="Transparent" BorderThickness="0" Uid="Test" AutomationProperties.Name="StopButton" AutomationProperties.AutomationId="StopButton" RenderTransformOrigin="0.5,0.5" Grid.Column="4" Grid.ColumnSpan="2" >
+          <Button.RenderTransform>
+            <TransformGroup>
+              <ScaleTransform/>
+              <SkewTransform AngleY="1.16"/>
+              <RotateTransform/>
+              <TranslateTransform Y="0.891"/>
+            </TransformGroup>
+          </Button.RenderTransform>
+          <StackPanel Width="54">
+            <Image x:Name="stopImage" Source="Music Player Icons/Stop.PNG" Height="62" Margin="2,0,1,0" />
+          </StackPanel>
+        </Button>
+        <Button  Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" x:Name="PauseButton" Margin="1,296,0.006,21" Click="PauseButton_Click" AutomationProperties.Name="Pause" Width="58" Height="66" RenderTransformOrigin="0.5,0.5" Grid.Column="3" Grid.ColumnSpan="2">
+          <Button.RenderTransform>
+            <TransformGroup>
+              <ScaleTransform/>
+              <SkewTransform AngleX="0.701"/>
+              <RotateTransform/>
+              <TranslateTransform X="-0.44"/>
+            </TransformGroup>
+          </Button.RenderTransform>
+          <StackPanel Width="67" Height="52">
+            <Image x:Name="pauseImage" Source="Music Player Icons/Pause.PNG" Height="54" Margin="-2,0,12,0"/>
+          </StackPanel>
+        </Button>
+
+      </Grid>
+      <MediaElement x:Name="MediaPlayer"  LoadedBehavior="Manual" HorizontalAlignment="Left" Height="220" Margin="36,48,0,0" VerticalAlignment="Top" Width="310" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+        <MediaElement.RenderTransform>
+          <TransformGroup>
+            <ScaleTransform ScaleX="-1"/>
+            <SkewTransform AngleX="-0.574"/>
+            <RotateTransform/>
+            <TranslateTransform X="-1.348"/>
+          </TransformGroup>
+        </MediaElement.RenderTransform>
+      </MediaElement>
+      <Label Content="Robmem Engineering" HorizontalAlignment="Left" Margin="15,-9,0,0" VerticalAlignment="Top" Height="39" Width="533" Foreground="White" FontSize="20"/>
+
+    </Grid>
+
+  </Grid>
+</Window>
