@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace Music_Player
 {
@@ -27,6 +29,7 @@ namespace Music_Player
     public MainWindow()
     {
       InitializeComponent();
+      ShowAllSongs();
     }
 
 
@@ -211,6 +214,7 @@ namespace Music_Player
       // Note: You must browse to add a reference to System.Windows.Forms
       // in Solution Explorer in order to have access to the FolderBrowserDialog			
       System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+      MediaPlayer.Stop();
       PlayingTrack.Items.Clear();
       ClearTextBlocks();
 
@@ -247,12 +251,57 @@ namespace Music_Player
 
     private void OpenPlaylist_Click(object sender, RoutedEventArgs e)
     {
-      //To do
+      XmlDocument xdoc = new XmlDocument();
+      XmlNodeList xmlNodes;
+      XmlNode pathNode;
+      string track;
+      bool ok = true;
+      try
+      {
+        xdoc.Load("playlistData.xml");
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message, "Error Loading XML Data");
+        ok = false;
+      }
+      if (ok)
+      {
+        MusicListBox.Items.Clear();
+        MusicListBox.Visibility = Visibility.Visible;
+        xmlNodes = xdoc.SelectNodes("PlaylistTrack/Track");
+        foreach (XmlNode node in xmlNodes)
+        {
+          pathNode = node.SelectSingleNode("MusicPath");
+          track = pathNode.InnerText;
+          MusicListBox.Items.Add(track);
+        }
+        MusicListBox.SelectedIndex = 0;
+      }
     }
 
     private void SavePlaylist_Click(object sender, RoutedEventArgs e)
     {
-      //To do
+      XmlTextWriter xMLTextWriter = new XmlTextWriter("playlistData.xml", Encoding.Unicode);
+      xMLTextWriter.WriteStartElement("PlaylistTrack");
+
+      foreach (string item in MusicListBox.Items)
+      {
+        xMLTextWriter.WriteStartElement("Track");
+        xMLTextWriter.WriteElementString("MusicPath", item);
+        string fileName = System.IO.Path.GetFileName(item);
+        string simpleFileName = System.IO.Path.GetFileNameWithoutExtension(fileName);
+        xMLTextWriter.WriteElementString("TrackName", simpleFileName);
+
+      
+
+        xMLTextWriter.WriteEndElement();
+      }
+      xMLTextWriter.WriteEndElement();
+
+      xMLTextWriter.Close();
+
+      MessageBox.Show("Playlist have been saved");
     }
 
 
@@ -300,17 +349,45 @@ namespace Music_Player
     private void WaterMark_GotFocus(object sender, RoutedEventArgs e)
     {
       WaterMark.Visibility = System.Windows.Visibility.Collapsed;
-      Input.Visibility = System.Windows.Visibility.Visible;
-      Input.Focus();
+      Search.Visibility = System.Windows.Visibility.Visible;
+      Search.Focus();
     }
 
-    private void Input_LostFocus(object sender, RoutedEventArgs e)
+
+
+    private void Search_LostFocus(object sender, RoutedEventArgs e)
     {
-      if (string.IsNullOrEmpty(Input.Text))
+      if (string.IsNullOrEmpty(Search.Text))
       {
-        Input.Visibility = System.Windows.Visibility.Collapsed;
+        Search.Visibility = System.Windows.Visibility.Collapsed;
         WaterMark.Visibility = System.Windows.Visibility.Visible;
       }
     }
+
+    private void ShowAllSongs()
+    {
+      MusicListBox.Items.Clear();
+      DataSet dataSet = new DataSet();
+      dataSet.ReadXml("playlistData.xml");
+      this.allSongs.ItemsSource = dataSet.Tables[0].DefaultView;
+    }
+
+    private void Search_SelectionChanged(object sender, RoutedEventArgs e)
+    {
+
+      DataSet dataSet = new DataSet();
+      dataSet.ReadXml("playlistData.xml");
+      DataView dv = new DataView();
+      dv = dataSet.Tables[0].DefaultView;
+      dv.RowFilter = "TrackName LIKE '%" + Search.Text + "%'";
+      this.allSongs.ItemsSource = dv;
+    }
+
+    private void MediaPlayer_MediaEnded(object sender, RoutedEventArgs e)
+    {
+      MediaPlayer.Stop();
+    }
   }
-}
+
+ 
+  }
