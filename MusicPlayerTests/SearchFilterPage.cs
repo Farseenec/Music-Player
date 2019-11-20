@@ -30,9 +30,9 @@ namespace MusicPlayerTests
 
       SearchCriteria dataGrid = SearchCriteria.ByAutomationId("allSongs");
       ListView test = windows.Get<ListView>(dataGrid);
-      ListViewRow first = test.Rows[0];
-      Assert.AreEqual("C:\\Users\\mohammed.farseen\\OneDrive - Royal Mail Group Ltd\\Desktop\\Music Files\\3 Minute Step Test Timer.mp3", first.Cells[0].Text);
-
+      ListViewRow firsRow = test.Rows[0];
+      Assert.AreEqual("C:\\Users\\mohammed.farseen\\OneDrive - Royal Mail Group Ltd\\Desktop\\Music Files\\3 Minute Step Test Timer.mp3", firsRow.Cells[0].Text);
+      application.Close();
 
 
 

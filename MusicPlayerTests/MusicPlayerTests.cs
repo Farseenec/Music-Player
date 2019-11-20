@@ -6,6 +6,7 @@ namespace MusicPlayerTests
   [TestClass]
   public class MusicPlayerTests
   {
+    [TestMethod]
     public void Launch_Music_Player()
     {
       LaunchMusicPlayerPage launchMusicPlayer = new LaunchMusicPlayerPage();
@@ -44,6 +45,22 @@ namespace MusicPlayerTests
     }
 
     [TestMethod]
+    public void Press_Pause_Test()
+    {
+      MusicPlayerButtonPage pressPause = new MusicPlayerButtonPage();
+      pressPause.PressPause();
+
+    }
+
+    [TestMethod]
+    public void Press_Shuffle_Test()
+    {
+      MusicPlayerButtonPage pressShuffle = new MusicPlayerButtonPage();
+      pressShuffle.PressShuffle();
+
+    }
+
+    [TestMethod]
     public void Open_Music_Folder()
     {
       FolderPage folderPage = new FolderPage();
@@ -56,7 +73,6 @@ namespace MusicPlayerTests
     {
       FolderPage playMusicFolder = new FolderPage();
       playMusicFolder.PlayMusicFromFolder();
-
     }
 
     [TestMethod]
@@ -93,5 +109,7 @@ namespace MusicPlayerTests
       SearchFiltersPage filterMusic = new SearchFiltersPage();
       filterMusic.SearchMusicFile();
     }
+
+
   }
 }

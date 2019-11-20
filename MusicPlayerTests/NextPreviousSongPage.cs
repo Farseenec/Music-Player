@@ -14,7 +14,7 @@ using TestStack.White.UIItems.TreeItems;
 
 namespace MusicPlayerTests
 {
-  public class NextPreviousSongPage
+  public class NextPreviousSongPage : AssertAudio
   {
     public void NextAndPreviousSong()
     {
@@ -41,6 +41,7 @@ namespace MusicPlayerTests
       var pressForwardPlay = windows.Get<Button>(SearchCriteria.ByAutomationId("PlayButton"));
       pressForwardPlay.Click();
       Thread.Sleep(2000);
+      Assert.IsTrue(IsAudioPlaying(GetDefaultRenderDevice()));
 
 
       ////Play Backward
@@ -50,6 +51,7 @@ namespace MusicPlayerTests
       var pressBackPlay = windows.Get<Button>(SearchCriteria.ByAutomationId("PlayButton"));
       pressBackPlay.Click();
       Thread.Sleep(2000);
+      Assert.IsTrue(IsAudioPlaying(GetDefaultRenderDevice()));
 
       application.Close();
 

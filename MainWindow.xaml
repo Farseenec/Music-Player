@@ -107,7 +107,7 @@
             </Image>
           </StackPanel>
         </Button>
-        <Button x:Name="ShuffleButton" Margin="112.994,299,404,13" Background="Transparent" Click="ShuffleButton_Click"  BorderBrush="Transparent" BorderThickness="0" AutomationProperties.Name="PreviousSongButton" AutomationProperties.AutomationId="Prevo" Grid.Column="5">
+        <Button x:Name="ShuffleButton" Margin="112.994,299,404,13" Background="Transparent" Click="ShuffleButton_Click"  BorderBrush="Transparent" BorderThickness="0" AutomationProperties.Name="ShuffleSongButton" AutomationProperties.AutomationId="ShuffleSongButton" Grid.Column="5">
           <StackPanel Width="59" Height="82">
             <Image x:Name="ShuffleSongButtonImage" Source="Music Player Icons/Shuffle.PNG" Height="66" Margin="3,0,6,0" RenderTransformOrigin="0.5,0.5">
               <Image.RenderTransform>
