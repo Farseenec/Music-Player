@@ -52,13 +52,13 @@ namespace MusicPlayerTests
 
     }
 
-    [TestMethod]
-    public void Press_Shuffle_Test()
-    {
-      MusicPlayerButtonPage pressShuffle = new MusicPlayerButtonPage();
-      pressShuffle.PressShuffle();
+    //[TestMethod]
+    //public void Press_Shuffle_Test()
+    //{
+    //  MusicPlayerButtonPage pressShuffle = new MusicPlayerButtonPage();
+    //  pressShuffle.PressShuffle();
 
-    }
+    //}
 
     [TestMethod]
     public void Open_Music_Folder()

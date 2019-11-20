@@ -25,7 +25,7 @@ namespace MusicPlayerTests
       var menu = windows.MenuBar.MenuItem("File", "Open File");
       menu.Click();
       var fileNameTextBox = windows.Get<TextBox>(SearchCriteria.ByAutomationId("1148"));
-      string fileName = "C:\\Music Files\\1-Minute Audio Test.mp3";
+      string fileName = FileNameConstantFile.MusicPath;
       fileNameTextBox.Text = fileName;
       var openFile = windows.Get<Button>(SearchCriteria.ByAutomationId("1"));
       openFile.Click();
@@ -48,7 +48,7 @@ namespace MusicPlayerTests
       var menu = windows.MenuBar.MenuItem("File", "Open File");
       menu.Click();
       var fileNameTextBox = windows.Get<TextBox>(SearchCriteria.ByAutomationId("1148"));
-      string fileName = "C:\\Music Files\\1-Minute Audio Test.mp3";
+      string fileName = FileNameConstantFile.MusicPath;
       fileNameTextBox.Text = fileName;
       var openFile = windows.Get<Button>(SearchCriteria.ByAutomationId("1"));
       openFile.Click();
@@ -74,7 +74,7 @@ namespace MusicPlayerTests
       var menu = windows.MenuBar.MenuItem("File", "Open File");
       menu.Click();
       var fileNameTextBox = windows.Get<TextBox>(SearchCriteria.ByAutomationId("1148"));
-      string fileName = "C:\\Music Files\\1-Minute Audio Test.mp3";
+      string fileName = FileNameConstantFile.MusicPath;
       fileNameTextBox.Text = fileName;
       var openFile = windows.Get<Button>(SearchCriteria.ByAutomationId("1"));
       openFile.Click();
@@ -107,14 +107,14 @@ namespace MusicPlayerTests
       openFile.Click();
       var listBox = windows.Get<ListBox>("MusicListBox");
       var selectedItem = listBox.SelectedItem;
-      NUnit.Framework.Assert.That(selectedItem.Text, Is.EqualTo("C:\\Users\\mohammed.farseen\\OneDrive - Royal Mail Group Ltd\\Desktop\\Music Files\\1-Minute Audio Test.mp3"));
+      NUnit.Framework.Assert.That(selectedItem.Text, Is.EqualTo(FileNameConstantFile.MusicFile1Playlist));
       var clickShuffle = windows.Get<Button>(SearchCriteria.ByAutomationId("ShuffleSongButton"));
       clickShuffle.Click();
       Thread.Sleep(3000);
       Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(clickShuffle.Text, "ShuffleSongButton");
 
       //Random Shuffle
-      NUnit.Framework.Assert.That(listBox.SelectedItemText, Is.EqualTo("C:\\Users\\mohammed.farseen\\OneDrive - Royal Mail Group Ltd\\Desktop\\Music Files\\3 Minute Step Test Timer.mp3"));
+      NUnit.Framework.Assert.That(listBox.SelectedItemText, Is.EqualTo(FileNameConstantFile.MusicFile2Playlist));
       Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(IsAudioPlaying(GetDefaultRenderDevice()));
       application.Close();
 

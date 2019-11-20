@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="AssertAudio.cs" />
     <Compile Include="ExitPage.cs" />
+    <Compile Include="FileNameConstantFile.cs" />
     <Compile Include="FolderPage.cs" />
     <Compile Include="LaunchMusicPlayerPage.cs" />
     <Compile Include="MusicPlayerButtonPage.cs" />

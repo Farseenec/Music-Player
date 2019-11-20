@@ -12,6 +12,7 @@ namespace MusicPlayerTests
 {
   public class LaunchMusicPlayerPage
   {
+    FileNameConstantFile FileNameConstantFile;
     public void LaunchMusicPlayer()
     {
       var application = Application.Launch("Music Player.exe");
@@ -38,7 +39,7 @@ namespace MusicPlayerTests
       var menu = windows.MenuBar.MenuItem("File", "Open File");
       menu.Click();
       var fileNameTextBox = windows.Get<TextBox>(SearchCriteria.ByAutomationId("1148"));
-      string fileName = "C:\\Music Files\\1-Minute Audio Test.mp3";
+      string fileName = FileNameConstantFile.MusicPath;
       fileNameTextBox.Text = fileName;
       windows.Close();
       application.Close();

@@ -28,7 +28,7 @@ namespace MusicPlayerTests
       openFile.Click();
       var listBox = windows.Get<ListBox>("MusicListBox");
       var selectedItem = listBox.SelectedItem;
-      Assert.That(selectedItem.Text, Is.EqualTo("C:\\Users\\mohammed.farseen\\OneDrive - Royal Mail Group Ltd\\Desktop\\Music Files\\1-Minute Audio Test.mp3"));
+      Assert.That(selectedItem.Text, Is.EqualTo(FileNameConstantFile.MusicFile1Playlist));
       selectedItem.Click();
       var clickPlay = windows.Get<Button>(SearchCriteria.ByAutomationId("PlayButton"));
       clickPlay.Click();
