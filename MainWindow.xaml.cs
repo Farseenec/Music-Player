@@ -31,7 +31,7 @@ namespace Music_Player
     {
       InitializeComponent();
       ShowAllSongs();
-      IdleMode();
+      //IdleMode();
     }
 
 
@@ -410,16 +410,16 @@ namespace Music_Player
 
 
     //This method test idle mode scenorios
-    public void IdleMode()
-    {
-      var timer = new DispatcherTimer
-            (
-            TimeSpan.FromMinutes(0.5), //30 seconds
-            DispatcherPriority.SystemIdle,// 
-            (s, e) => MessageBox.Show("Device Idle"),
-            Application.Current.Dispatcher
-            );
+    //public void IdleMode()
+    //{
+    //  var timer = new DispatcherTimer
+    //        (
+    //        TimeSpan.FromMinutes(0.5), //30 seconds
+    //        DispatcherPriority.SystemIdle,// 
+    //        (s, e) => MessageBox.Show("Device Idle"),
+    //        Application.Current.Dispatcher
+    //        );
 
-    }
+    //}
   }
 }

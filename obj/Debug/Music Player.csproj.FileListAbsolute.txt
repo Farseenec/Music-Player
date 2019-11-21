@@ -37,7 +37,6 @@ C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player L
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\bin\Debug\Music Player.exe.config
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\bin\Debug\Music Player.exe
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\bin\Debug\Music Player.pdb
-C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\obj\Debug\Music Player.csprojAssemblyReference.cache
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\obj\Debug\MainWindow.baml
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\obj\Debug\MainWindow.g.cs
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\obj\Debug\App.g.cs
