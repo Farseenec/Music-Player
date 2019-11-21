@@ -29,7 +29,7 @@ namespace MusicPlayerTests
       openFile.Click();
       var listBox = windows.Get<ListBox>("MusicListBox");
       var selectedItem = listBox.SelectedItem;
-      Assert.That(selectedItem.Text, Is.EqualTo("C:\\Users\\mohammed.farseen\\OneDrive - Royal Mail Group Ltd\\Desktop\\Music Files\\1-Minute Audio Test.mp3"));
+      Assert.That(selectedItem.Text, Is.EqualTo(FileNameConstantFile.MusicFile1Playlist));
 
 
 
@@ -62,7 +62,7 @@ namespace MusicPlayerTests
       openFile.Click();
       var listBox = windows.Get<ListBox>("MusicListBox");
       var selectedItem = listBox.SelectedItem;
-      Assert.That(selectedItem.Text, Is.EqualTo("C:\\Users\\mohammed.farseen\\OneDrive - Royal Mail Group Ltd\\Desktop\\Music Files\\1-Minute Audio Test.mp3"));
+      Assert.That(selectedItem.Text, Is.EqualTo(FileNameConstantFile.MusicFile1Playlist));
 
 
 
@@ -96,9 +96,9 @@ namespace MusicPlayerTests
       var musicBox = windows.Get<ListBox>("MusicListBox");
       var selectedItemMusic = musicBox.SelectedItem;
       musicBox.Select(0);
-      Assert.That(selectedItemMusic.Text, Is.EqualTo("C:\\Users\\mohammed.farseen\\OneDrive - Royal Mail Group Ltd\\Desktop\\Music Files\\1-Minute Audio Test.mp3"));
+      Assert.That(selectedItemMusic.Text, Is.EqualTo(FileNameConstantFile.MusicFile1Playlist));
       musicBox.Items[1].Click();
-      Assert.That(musicBox.SelectedItemText, Is.EqualTo("C:\\Users\\mohammed.farseen\\OneDrive - Royal Mail Group Ltd\\Desktop\\Music Files\\3 Minute Step Test Timer.mp3"));
+      Assert.That(musicBox.SelectedItemText, Is.EqualTo(FileNameConstantFile.MusicFile2Playlist));
 
       application.Close();
 

@@ -23,20 +23,18 @@ C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\MP Synoptic\Mu
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\MP Synoptic\MusicPlayerTests\bin\Debug\nunit.framework.pdb
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\MP Synoptic\MusicPlayerTests\bin\Debug\nunit.framework.xml
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\MP Synoptic\MusicPlayerTests\bin\Debug\Music Player.exe
-C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Music Player.exe
+C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\playlistData.xml
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\MusicPlayerTests.dll.config
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\MusicPlayerTests.dll
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\MusicPlayerTests.pdb
-C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Castle.Core.xml
-C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\obj\Debug\MusicPlayerTests.csproj.CopyComplete
-C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\obj\Debug\MusicPlayerTests.dll
-C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\obj\Debug\MusicPlayerTests.pdb
-C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\obj\Debug\MusicPlayerTests.csprojAssemblyReference.cache
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\obj\Debug\MusicPlayerTests.csproj.CopyComplete
+C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\obj\Debug\MusicPlayerTests.dll
+C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\obj\Debug\MusicPlayerTests.pdb
+C:\Users\mohammed.farseen\OneDrive - Royal Mail Group Ltd\Desktop\Music Player Local Repo\music-player\MusicPlayerTests\bin\Debug\Music Player.exe

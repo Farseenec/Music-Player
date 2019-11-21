@@ -70,6 +70,7 @@
     <Compile Include="FileNameConstantFile.cs" />
     <Compile Include="FolderPage.cs" />
     <Compile Include="LaunchMusicPlayerPage.cs" />
+    <Compile Include="MusicIdlePage.cs" />
     <Compile Include="MusicPlayerButtonPage.cs" />
     <Compile Include="NextPreviousSongPage.cs" />
     <Compile Include="PlaylistPage.cs" />

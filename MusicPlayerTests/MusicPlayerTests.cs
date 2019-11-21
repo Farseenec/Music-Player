@@ -14,7 +14,6 @@ namespace MusicPlayerTests
     }
 
 
-    //This tests whether the file browser being opened
     [TestMethod]
     public void Open_File_Browser()
     {
@@ -52,13 +51,14 @@ namespace MusicPlayerTests
 
     }
 
-    //[TestMethod]
-    //public void Press_Shuffle_Test()
-    //{
-    //  MusicPlayerButtonPage pressShuffle = new MusicPlayerButtonPage();
-    //  pressShuffle.PressShuffle();
+    //Still require more work
+    [TestMethod]
+    public void Press_Shuffle_Test()
+    {
+      MusicPlayerButtonPage pressShuffle = new MusicPlayerButtonPage();
+     pressShuffle.PressShuffle();
 
-    //}
+    }
 
     [TestMethod]
     public void Open_Music_Folder()
@@ -108,6 +108,13 @@ namespace MusicPlayerTests
     {
       SearchFiltersPage filterMusic = new SearchFiltersPage();
       filterMusic.SearchMusicFile();
+    }
+
+    [TestMethod]
+    public void Idle_Mode_Test()
+    {
+      MusicIdlePage musicIdlePage = new MusicIdlePage();
+      musicIdlePage.IdleModeTest();
     }
 
 

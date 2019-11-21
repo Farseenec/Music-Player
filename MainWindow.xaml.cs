@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using System.Xml;
 
 namespace Music_Player
@@ -30,6 +31,7 @@ namespace Music_Player
     {
       InitializeComponent();
       ShowAllSongs();
+      IdleMode();
     }
 
 
@@ -86,7 +88,7 @@ namespace Music_Player
     //This methods plays the next song in the playlist
     private void NextSongButton_Click(object sender, RoutedEventArgs e)
     {
-      if (MusicListBox.SelectedIndex < MusicListBox.Items.Count - 1) 
+      if (MusicListBox.SelectedIndex < MusicListBox.Items.Count - 1)
       {
         MusicListBox.SelectedIndex = MusicListBox.SelectedIndex + 1;
         MediaPlayer.Close();
@@ -149,13 +151,14 @@ namespace Music_Player
       }
     }
 
-    //Continues the music from where it was left off during Pause
+    //This method allows the music to continue where it was left off
     public void ContinuePlaying()
     {
       musicPaused = false;
       MediaPlayer.Play();
     }
 
+    //This method allows the user to click on the MusicListBox(playlist) and play music depending on the index
     private void PlayPlaylist()
     {
       int selectedItemIndex = -1;
@@ -172,13 +175,15 @@ namespace Music_Player
 
     }
 
+
+    //This method exit the application
     private void CloseApp_Click(object sender, RoutedEventArgs e)
     {
       mainWindow.Close();
-      
+
     }
 
-    //Opens file and allows the user to choose a music file
+    //This method opens file and allows the user to choose a music file
     private void OpenFile_Click(object sender, RoutedEventArgs e)
     {
       Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
@@ -206,7 +211,7 @@ namespace Music_Player
 
 
 
-    //allows the user to open a folder which main contains some music files
+    //Allows the user to open a folder which main contains some music files
     private void OpenFolder_Click(object sender, RoutedEventArgs e)
     {
       String folderPath = "";
@@ -239,7 +244,8 @@ namespace Music_Player
       }
 
     }
-     
+
+    //Clears the value from music info
     public void ClearTextBlocks()
     {
       musicPath.Text = null;
@@ -248,7 +254,7 @@ namespace Music_Player
 
 
 
-
+    //This method open the saved playlist using the xml data
     private void OpenPlaylist_Click(object sender, RoutedEventArgs e)
     {
       XmlDocument xdoc = new XmlDocument();
@@ -280,6 +286,7 @@ namespace Music_Player
       }
     }
 
+    //This methods saves the playlist and store it in an XML file
     private void SavePlaylist_Click(object sender, RoutedEventArgs e)
     {
       XmlTextWriter xMLTextWriter = new XmlTextWriter("playlistData.xml", Encoding.Unicode);
@@ -293,7 +300,7 @@ namespace Music_Player
         string simpleFileName = System.IO.Path.GetFileNameWithoutExtension(fileName);
         xMLTextWriter.WriteElementString("TrackName", simpleFileName);
 
-      
+
 
         xMLTextWriter.WriteEndElement();
       }
@@ -305,7 +312,7 @@ namespace Music_Player
     }
 
 
-    //Displays the track name and path
+    //This displays music track info depending on what the user has clicked
     private void PlayingTrack_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       int selectedItemIndex = -1;
@@ -324,6 +331,7 @@ namespace Music_Player
       }
     }
 
+    //This displays music track info when user clicks the playlist box(MusicListBox)
 
     private void MusicListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -346,6 +354,7 @@ namespace Music_Player
       }
     }
 
+    //Search text box functionality
     private void WaterMark_GotFocus(object sender, RoutedEventArgs e)
     {
       WaterMark.Visibility = System.Windows.Visibility.Collapsed;
@@ -354,6 +363,7 @@ namespace Music_Player
     }
 
 
+    //Search text box functionality
 
     private void Search_LostFocus(object sender, RoutedEventArgs e)
     {
@@ -364,6 +374,7 @@ namespace Music_Player
       }
     }
 
+    //This method gets data from xml file and show it in the datagrid
     private void ShowAllSongs()
     {
       MusicListBox.Items.Clear();
@@ -372,6 +383,7 @@ namespace Music_Player
       this.allSongs.ItemsSource = dataSet.Tables[0].DefaultView;
     }
 
+    //This method allows the user to search and filter according to track name
     private void Search_SelectionChanged(object sender, RoutedEventArgs e)
     {
 
@@ -383,11 +395,31 @@ namespace Music_Player
       this.allSongs.ItemsSource = dv;
     }
 
-    private void MediaPlayer_MediaEnded(object sender, RoutedEventArgs e)
+    private void Media_Player_Opened(object sender, RoutedEventArgs e)
     {
-      MediaPlayer.Stop();
+      SliderPosition.Maximum = MediaPlayer.NaturalDuration.TimeSpan.TotalMilliseconds;
+
+    }
+
+    private void SliderPosition_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    {
+      int SliderValue = (int)SliderPosition.Value;
+      TimeSpan ts = new TimeSpan(0, 0, 0, 0, SliderValue);
+      MediaPlayer.Position = ts;
+    }
+
+
+    //This method test idle mode scenorios
+    public void IdleMode()
+    {
+      var timer = new DispatcherTimer
+            (
+            TimeSpan.FromMinutes(0.5), //30 seconds
+            DispatcherPriority.SystemIdle,// 
+            (s, e) => MessageBox.Show("Device Idle"),
+            Application.Current.Dispatcher
+            );
+
     }
   }
-
- 
-  }
+}

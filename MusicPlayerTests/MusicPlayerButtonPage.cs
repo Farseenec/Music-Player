@@ -119,5 +119,6 @@ namespace MusicPlayerTests
       application.Close();
 
     }
+
   }
 }

@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TestStack.White;
 using TestStack.White.Factory;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
+using TestStack.White.UIItems.ListBoxItems;
 
 namespace MusicPlayerTests
 {
@@ -34,7 +36,7 @@ namespace MusicPlayerTests
 
     public void EnterMusicPath()
     {
-      var application = Application.Launch(@"Music Player.exe");
+      var application = Application.Launch("Music Player.exe");
       var windows = application.GetWindow("Music Player", InitializeOption.NoCache);
       var menu = windows.MenuBar.MenuItem("File", "Open File");
       menu.Click();
@@ -45,5 +47,9 @@ namespace MusicPlayerTests
       application.Close();
 
     }
+
+    
+
+    
   }
 }
